@@ -1,27 +1,25 @@
-class WorkerThread extends Thread {
-    public WorkerThread(String name) {
-        super(name);
-    }
 
-    public void run() {
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Thread: " + getName() + ", Priority: " + getPriority());
-        }
-    }
-}
+import java.util.ArrayList;
+import java.util.Collections;
 
+// 5.Write a program to sort an ArrayList of strings alphabetically and reverse alphabetically.
 public class Question5 {
     public static void main(String[] args) {
-        WorkerThread worker1 = new WorkerThread("Worker-1");
-        WorkerThread worker2 = new WorkerThread("Worker-2");
-        WorkerThread worker3 = new WorkerThread("Worker-3");
+        ArrayList<String> cities = new ArrayList<>();
+        cities.add("New York");
+        cities.add("Tokyo");
+        cities.add("London");
+        cities.add("Paris");
+        cities.add("Beijing");
 
-        worker1.setPriority(Thread.MIN_PRIORITY);
-        worker2.setPriority(Thread.NORM_PRIORITY);
-        worker3.setPriority(Thread.MAX_PRIORITY);
+        System.out.println("Original list: " + cities);
 
-        worker1.start();
-        worker2.start();
-        worker3.start();
+        // Sort alphabetically
+        Collections.sort(cities);
+        System.out.println("Sorted alphabetically: " + cities);
+
+        // Sort in reverse alphabetical order
+        Collections.sort(cities, Collections.reverseOrder());
+        System.out.println("Sorted in reverse alphabetical order: " + cities);
     }
 }
